@@ -1,16 +1,19 @@
-# React + Vite
+# Frutos Secos Loica - E-commerce
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este es el proyecto inicial de mi tienda online para el curso de React en Coderhouse.
 
-Currently, two official plugins are available:
+## Descripción del Proyecto
+Frutos Secos Loica es una plataforma de e-commerce dedicada a la venta de frutos secos, semillas y mixes premium. El objetivo es ofrecer una experiencia de usuario fluida e intuitiva para la compra de productos naturales.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tecnologías Utilizadas
+* React 19
+* Vite
+* JavaScript
 
-## React Compiler
+## Instrucciones para ejecutar el proyecto localmente
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clonar el repositorio en tu máquina local.
+2. Abrir la terminal en la carpeta del proyecto.
+3. Ejecutar el comando `npm install` para instalar las dependencias necesarias.
+4. Ejecutar el comando `npm run dev` para iniciar el servidor de desarrollo.
+5. Abrir el enlace local (generalmente `http://localhost:5173/`) en el navegador.
