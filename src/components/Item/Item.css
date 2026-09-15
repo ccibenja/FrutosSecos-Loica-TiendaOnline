@@ -1,0 +1,12 @@
+/* src/components/Item/Item.css */
+.card-producto {
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  background-color: white;
+  width: 200px;
+}
+.card-producto img {
+  border-radius: 4px;
+}

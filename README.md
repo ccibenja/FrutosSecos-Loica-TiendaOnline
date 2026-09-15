@@ -23,3 +23,6 @@ Frutos Secos Loica es una plataforma de e-commerce dedicada a la venta de frutos
 * **Navbar**: Barra de navegación superior que contiene el nombre/logo de la tienda y los enlaces a las distintas categorías de productos reales.
 * **CartWidget**: Componente visual ubicado dentro de la Navbar que muestra un ícono de carrito de compras y un contador con la cantidad de productos seleccionados.
 * **ItemListContainer**: Contenedor principal de la página que recibe información dinámicamente a través de *props* (como el mensaje de bienvenida) y la renderiza en pantalla.
+
+## Simulación de carga de datos
+Para este checkpoint, se creó un archivo `asyncMock.js` que contiene un array de productos. Usando una Promesa (`Promise`) y `setTimeout`, se simula un retraso de 2 segundos (2000ms) al solicitar los datos, imitando el comportamiento asíncrono de una API real. Los datos son solicitados y guardados en el estado del componente `ItemListContainer`.

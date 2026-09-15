@@ -1,0 +1,8 @@
+/* src/components/ItemList/ItemList.css */
+.contenedor-lista {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap; /* Para que bajen si no caben */
+  padding: 20px;
+}
