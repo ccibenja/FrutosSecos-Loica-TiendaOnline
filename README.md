@@ -14,10 +14,10 @@ Frutos Secos Loica es una plataforma de e-commerce dedicada a la venta de frutos
 
 1. Clonar el repositorio en tu máquina local.
 2. Abrir la terminal en la carpeta del proyecto.
-3. Ejecutar el comando `npm install` para instalar las dependencias necesarias.
+3. Ejecutar el comando `npm install` para instalar las dependencias. 
+   *(Nota: Al utilizar React 19, si experimentas errores de "peer dependencies" con ESLint u otras librerías, ejecuta `npm install --legacy-peer-deps`).*
 4. Ejecutar el comando `npm run dev` para iniciar el servidor de desarrollo.
-5. Abrir el enlace local (generalmente `http://localhost:5173/`) en el navegador.
-
+5. Abrir el enlace local en el navegador.
 ## Componentes de la aplicación
 
 * **Navbar**: Barra de navegación superior que contiene el nombre/logo de la tienda y los enlaces a las distintas categorías de productos reales.
