@@ -1,0 +1,26 @@
+.detalle-producto {
+  display: flex;
+  gap: 30px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 800px;
+  margin: 20px auto; /* Para centrarlo en la pantalla */
+  background-color: white;
+}
+.detalle-producto img {
+  width: 300px;
+  border-radius: 8px;
+}
+.info-producto {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.precio {
+  color: brown;
+}
+.stock {
+  font-size: 0.9rem;
+  color: gray;
+}

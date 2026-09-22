@@ -36,3 +36,19 @@ export const getProducts = () => {
     }, 2000); // 2 segundos de espera
   });
 };
+
+// Función para buscar un solo producto por su ID
+export const getProductById = (productId) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      // Usamos .find() para buscar el producto que coincida con el id
+      const productoEncontrado = productos.find((p) => p.id === productId);
+      
+      if (productoEncontrado) {
+        resolve(productoEncontrado);
+      } else {
+        reject(new Error("Producto no encontrado"));
+      }
+    }, 1000); // Simulamos 1 segundo de demora
+  });
+};
