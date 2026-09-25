@@ -4,23 +4,50 @@ import ItemDetail from "../ItemDetail/ItemDetail";
 
 function ItemDetailContainer() {
   const [producto, setProducto] = useState(null);
+  const [loading, setLoading] = useState(true); // Arranca cargando
+  const [error, setError] = useState(false); // Arranca sin errores
 
   useEffect(() => {
-    // Por ahora le pasamos el id "1" a mano como pide la consigna. 
-    // Más adelante este id vendrá de la URL.
+    // Si llegara a cambiar el id en el futuro, reseteamos los estados al pedir datos nuevos
+    setLoading(true);
+    setError(false);
+    
     getProductById(1)
       .then((respuesta) => {
         setProducto(respuesta);
       })
       .catch((error) => {
-        console.log("Error al obtener el producto:", error);
+        console.error(error);
+        setError(true); // Si la promesa falla, activamos el error
+      })
+      .finally(() => {
+        setLoading(false); // Apagamos el "cargando" al final de todo
       });
   }, []);
 
+  // Interfaz de Carga (UI)
+  if (loading) {
+    return (
+      <div style={{ textAlign: "center", padding: "40px" }}>
+        <h3>⏳ Cargando detalle del producto...</h3>
+      </div>
+    );
+  }
+
+  // Interfaz de Error (UI)
+  if (error) {
+    return (
+      <div style={{ textAlign: "center", padding: "40px", color: "brown" }}>
+        <h3>❌ Uy, hubo un problema al cargar el producto.</h3>
+        <p>Por favor, recarga la página o intenta nuevamente más tarde.</p>
+      </div>
+    );
+  }
+
+  // Si no está cargando y no hay error, mostramos el producto
   return (
     <div>
-      {/* Si el producto es null, muestro cargando. Si ya llegó, muestro el componente */}
-      {producto ? <ItemDetail producto={producto} /> : <p style={{textAlign: "center"}}>Cargando detalle...</p>}
+      <ItemDetail producto={producto} />
     </div>
   );
 }

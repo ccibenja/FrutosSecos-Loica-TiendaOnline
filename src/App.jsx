@@ -9,9 +9,8 @@ function App() {
       <Navbar />
       <ItemListContainer greeting="¡Hola! Bienvenidos a mi tienda de Frutos Secos - Loica" />
       
-      <hr style={{margin: "40px 0"}} /> {/* Una línea separadora */}
+      <hr style={{margin: "40px 0"}} /> 
       
-      {/* Agregamos el contenedor del detalle abajo */}
       <h2 style={{textAlign: "center"}}>Vista de Detalle de Producto</h2>
       <ItemDetailContainer />
     </div>
