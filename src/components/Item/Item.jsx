@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Item.css';
 
 function Item({ product }) {
@@ -6,10 +7,13 @@ function Item({ product }) {
       <img src={product.img} alt={product.name} />
       <h3>{product.name}</h3>
       <p>Precio: ${product.price}</p>
-      <p className="descripcion">{product.description}</p>
+      
+      {/* Botón que navega a la URL del producto usando su ID */}
+      <Link to={`/item/${product.id}`} className="btn-detalle">
+        Ver Detalle
+      </Link>
     </div>
   );
 }
 
-// ¡Esta es la línea clave que estaba faltando o fallando!
 export default Item;

@@ -1,50 +1,37 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom"; // Importamos useParams
 import { getProductById } from "../../mock/asyncMock";
 import ItemDetail from "../ItemDetail/ItemDetail";
 
 function ItemDetailContainer() {
   const [producto, setProducto] = useState(null);
-  const [loading, setLoading] = useState(true); // Arranca cargando
-  const [error, setError] = useState(false); // Arranca sin errores
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+
+  // Capturamos el id de la URL
+  const { idProducto } = useParams();
 
   useEffect(() => {
-    // Si llegara a cambiar el id en el futuro, reseteamos los estados al pedir datos nuevos
     setLoading(true);
     setError(false);
     
-    getProductById(1)
+    // Convertimos idProducto a Número porque las URL siempre devuelven texto (String)
+    getProductById(Number(idProducto))
       .then((respuesta) => {
         setProducto(respuesta);
       })
       .catch((error) => {
         console.error(error);
-        setError(true); // Si la promesa falla, activamos el error
+        setError(true);
       })
       .finally(() => {
-        setLoading(false); // Apagamos el "cargando" al final de todo
+        setLoading(false);
       });
-  }, []);
+  }, [idProducto]); // idProducto en el array de dependencias
 
-  // Interfaz de Carga (UI)
-  if (loading) {
-    return (
-      <div style={{ textAlign: "center", padding: "40px" }}>
-        <h3>⏳ Cargando detalle del producto...</h3>
-      </div>
-    );
-  }
+  if (loading) return <h3 style={{ textAlign: "center", marginTop: "40px" }}>⏳ Buscando producto...</h3>;
+  if (error) return <h3 style={{ textAlign: "center", marginTop: "40px", color: "brown" }}>❌ Producto no encontrado</h3>;
 
-  // Interfaz de Error (UI)
-  if (error) {
-    return (
-      <div style={{ textAlign: "center", padding: "40px", color: "brown" }}>
-        <h3>❌ Uy, hubo un problema al cargar el producto.</h3>
-        <p>Por favor, recarga la página o intenta nuevamente más tarde.</p>
-      </div>
-    );
-  }
-
-  // Si no está cargando y no hay error, mostramos el producto
   return (
     <div>
       <ItemDetail producto={producto} />

@@ -33,3 +33,12 @@ Para este checkpoint, se creó un archivo `asyncMock.js` que contiene un array d
 * **ItemDetail**: Componente de presentación que recibe un producto mediante props y renderiza su información completa (imagen, título, descripción, categoría, precio y stock).
 * **ItemCount**: Componente reutilizable para la selección de cantidades. Recibe el stock disponible mediante props y previene la selección de valores inválidos (menores a 1 o superiores al inventario).
 * **getProductById**: Función asíncrona simulada en el mock de datos que busca y retorna un producto específico utilizando su identificador único.
+
+## Navegación (Routing - Pre-entrega 6)
+Se implementó `react-router-dom` para la navegación tipo SPA (Single Page Application).
+* **Rutas configuradas:**
+  * `/`: `ItemListContainer` con el catálogo completo.
+  * `/category/:id`: `ItemListContainer` filtrando productos dinámicamente.
+  * `/item/:id`: `ItemDetailContainer` mostrando el detalle del producto seleccionado.
+  * `*`: Ruta comodín para capturar errores 404.
+* **Componentes clave:** Uso de `Link` y `NavLink` para evitar recargas, y `useParams` para extraer datos de la URL en los contenedores, logrando una sincronización perfecta al navegar.

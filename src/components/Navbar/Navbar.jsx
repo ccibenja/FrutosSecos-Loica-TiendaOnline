@@ -1,3 +1,4 @@
+import { Link, NavLink } from "react-router-dom";
 import CartWidget from "../CartWidget/CartWidget";
 import "./Navbar.css";
 
@@ -5,13 +6,16 @@ function Navbar() {
   return (
     <nav className="mi-navbar">
       <div>
-        <h2>Frutos Secos Loica</h2>
+        {/* Link envuelve el título para volver al inicio */}
+        <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+          <h2>Frutos Secos Loica</h2>
+        </Link>
       </div>
       
       <ul className="menu-navegacion">
-        <li><a href="#">Almendras</a></li>
-        <li><a href="#">Nueces</a></li>
-        <li><a href="#">Mixes</a></li>
+        <li><NavLink to="/category/frutos-secos">Frutos Secos</NavLink></li>
+        <li><NavLink to="/category/semillas">Semillas</NavLink></li>
+        <li><NavLink to="/category/mixes">Mixes</NavLink></li>
       </ul>
 
       <CartWidget />

@@ -10,3 +10,5 @@
 .card-producto img {
   border-radius: 4px;
 }
+
+.btn-detalle { background: bisque; padding: 5px 10px; text-decoration: none; color: black; border: 1px solid brown; border-radius: 4px; display: inline-block; margin-top: 10px; }

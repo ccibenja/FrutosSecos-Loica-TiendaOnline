@@ -52,3 +52,14 @@ export const getProductById = (productId) => {
     }, 1000); // Simulamos 1 segundo de demora
   });
 };
+
+// Función para traer productos filtrados por categoría
+export const getProductsByCategory = (categoryId) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      // Filtramos el array para devolver solo los que coinciden con la categoría
+      const productosFiltrados = productos.filter((p) => p.category === categoryId);
+      resolve(productosFiltrados);
+    }, 1000);
+  });
+};
