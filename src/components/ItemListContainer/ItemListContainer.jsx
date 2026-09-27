@@ -1,42 +1,38 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom'; // Importamos useParams
+import { useParams } from 'react-router-dom';
 import ItemList from '../ItemList/ItemList';
-import { getProducts, getProductsByCategory } from '../../mock/asyncMock'; // Importamos ambas funciones
+import { db } from '../../firebase/config';
+import { collection, getDocs, query, where } from 'firebase/firestore';
 import './ItemListContainer.css';
 
 function ItemListContainer({ greeting }) {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  // Capturamos la categoría desde la URL (debe llamarse igual que en App.jsx)
-  const { idCategoria } = useParams(); 
+  const { idCategoria } = useParams();
 
   useEffect(() => {
     setLoading(true);
+    
+    const itemsRef = collection(db, "items");
+    const q = idCategoria ? query(itemsRef, where("category", "==", idCategoria)) : itemsRef;
 
-    // Si hay idCategoria usamos la función de filtro, si no, traemos todos
-    const funcionProductos = idCategoria ? getProductsByCategory(idCategoria) : getProducts();
-
-    funcionProductos
-      .then((data) => {
-        setItems(data);
+    getDocs(q)
+      .then((resp) => {
+        setItems(
+          resp.docs.map((doc) => {
+            return { id: doc.id, ...doc.data() };
+          })
+        );
       })
-      .catch((error) => console.log(error))
-      .finally(() => {
-        setLoading(false);
-      });
+      .catch((error) => console.error(error))
+      .finally(() => setLoading(false));
       
-  }, [idCategoria]); // IMPORTANTE: idCategoria en el array de dependencias
+  }, [idCategoria]);
 
   return (
     <div className="contenedor-saludo">
       <h1 className="titulo-saludo">{idCategoria ? `Categoría: ${idCategoria}` : greeting}</h1>
-      
-      {loading ? (
-        <p style={{ textAlign: 'center' }}>⏳ Cargando catálogo...</p>
-      ) : (
-        <ItemList products={items} />
-      )}
+      {loading ? <p style={{ textAlign: 'center' }}>⏳ Cargando catálogo...</p> : <ItemList products={items} />}
     </div>
   );
 }
