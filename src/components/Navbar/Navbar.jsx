@@ -6,7 +6,7 @@ function Navbar() {
   return (
     <nav className="mi-navbar">
       <div>
-        {/* Link envuelve el título para volver al inicio */}
+        
         <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
           <h2>Frutos Secos Loica</h2>
         </Link>

@@ -42,3 +42,5 @@ Se implementó `react-router-dom` para la navegación tipo SPA (Single Page Appl
   * `/item/:id`: `ItemDetailContainer` mostrando el detalle del producto seleccionado.
   * `*`: Ruta comodín para capturar errores 404.
 * **Componentes clave:** Uso de `Link` y `NavLink` para evitar recargas, y `useParams` para extraer datos de la URL en los contenedores, logrando una sincronización perfecta al navegar.
+
+Se implementó la lógica del carrito con Context API
