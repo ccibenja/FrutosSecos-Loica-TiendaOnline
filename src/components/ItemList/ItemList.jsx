@@ -1,11 +1,11 @@
 // src/components/ItemList/ItemList.jsx
 import Item from '../Item/Item';
-import './ItemList.css';
+import styles from './ItemList.module.css';
 
 // Recibo la lista de productos y hago el map
 function ItemList({ products }) {
   return (
-    <div className="contenedor-lista">
+    <div className={styles['contenedor-lista']}>
       {products.map((p) => (
         <Item key={p.id} product={p} /> 
       ))}

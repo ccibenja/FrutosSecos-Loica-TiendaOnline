@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 import ItemCount from "../ItemCount/ItemCount";
-import "./ItemDetail.css";
+import styles from "./ItemDetail.module.css";
 
 function ItemDetail({ producto }) {
   const [cantidadAgregada, setCantidadAgregada] = useState(0);
@@ -16,19 +16,18 @@ function ItemDetail({ producto }) {
   };
 
   return (
-    <div className="detalle-producto">
+    <div className={styles['detalle-producto']}>
       <img src={producto.img} alt={producto.name} />
       
-      <div className="info-producto">
+      <div className={styles['info-producto']}>
         <h2>{producto.name}</h2>
-        <p className="categoria">Categoría: {producto.category}</p>
-        <p className="descripcion">{producto.description}</p>
-        <h3 className="precio">Precio: ${producto.price}</h3>
-        <p className="stock">Stock disponible: {producto.stock}</p>
-        
+        <p className={styles.categoria}>Categoría: {producto.category}</p>
+        <p className={styles.descripcion}>{producto.description}</p>
+        <h3 className={styles.precio}>Precio: ${producto.price}</h3>
+        <p className={styles.stock}>Stock disponible: {producto.stock}</p>
         
         {cantidadAgregada > 0 ? (
-          <Link to="/cart" className="btn-terminar">Terminar mi compra</Link>
+          <Link to="/cart" className={styles['btn-terminar']}>Terminar mi compra</Link>
         ) : (
           <ItemCount stock={producto.stock} onAdd={handleAgregar} />
         )}

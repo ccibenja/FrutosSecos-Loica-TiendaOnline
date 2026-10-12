@@ -1,0 +1,16 @@
+.contenedor-detalle {
+  padding: 20px;
+  min-height: 60vh;
+}
+
+.mensajeEstado {
+  text-align: center;
+  margin-top: 40px;
+  color: #333;
+}
+
+.mensajeError {
+  text-align: center;
+  margin-top: 40px;
+  color: brown;
+}

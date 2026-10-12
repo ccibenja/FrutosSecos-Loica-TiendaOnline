@@ -8,10 +8,11 @@ Proyecto desarrollado para el curso de React JS en Coderhouse. La aplicación es
 
 - **Catálogo Dinámico:** Carga de productos en tiempo real desde Cloud Firestore.
 - **Navegación por Categorías:** Filtrado por Frutos Secos, Semillas y Mixes mediante `react-router-dom`.
-- **Detalle de Producto:** Vista individual con control de stock y agregado al carrito.
+- **Detalle de Producto:** Vista individual cargada desde Firestore con control de stock y agregado al carrito.
 - **Carrito de Compras:** Gestión de items, cálculo de totales y eliminación de productos mediante `CartContext`.
-- **Autenticación de Usuarios:** Registro e inicio de sesión con correo y contraseña gestionados por Firebase Auth.
-- **Checkout:** Vista de finalización de compra adaptada al estado de sesión del usuario.
+- **Autenticación de Usuarios:** Registro e inicio de sesión con correo y contraseña gestionados por Firebase Auth (`AuthContext`).
+- **Checkout:** Finalización de compra para usuarios autenticados con generación e ID de seguimiento de la orden.
+- **Estilos Modulares:** Diseño 100% migrado a **CSS Modules** respetando la identidad visual de la marca.
 
 ---
 
@@ -21,30 +22,13 @@ Proyecto desarrollado para el curso de React JS en Coderhouse. La aplicación es
 - **Rutado:** React Router DOM v6
 - **Estado Global:** React Context API (`CartContext` y `AuthContext`)
 - **Backend & Database:** Firebase (Cloud Firestore & Firebase Authentication)
-- **Estilos:** CSS3 nativo
+- **Estilos:** CSS Modules
 
 ---
 
-## 📂 Estructura del Proyecto
+## ⚙️ Instalación y Ejecución
 
-```text
-src/
-├── components/
-│   ├── Cart/
-│   ├── CartWidget/
-│   ├── Checkout/
-│   ├── Item/
-│   ├── ItemDetail/
-│   ├── ItemDetailContainer/
-│   ├── ItemList/
-│   ├── ItemListContainer/
-│   ├── Login/
-│   ├── Navbar/
-│   └── Register/
-├── context/
-│   ├── AuthContext.jsx
-│   └── CartContext.jsx
-├── firebase/
-│   └── config.js
-├── App.jsx
-└── main.jsx
+1. **Clonar el repositorio:**
+   ```bash
+   git clone [https://github.com/ccibenja/FrutosSecos-Loica-TiendaOnline.git](https://github.com/ccibenja/FrutosSecos-Loica-TiendaOnline.git)
+   cd FrutosSecos-Loica-TiendaOnline

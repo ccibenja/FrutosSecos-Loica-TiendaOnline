@@ -1,0 +1,94 @@
+.checkoutContainer {
+  max-width: 450px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.titulo {
+  color: brown;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.inputField {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.inputField:focus {
+  border-color: brown;
+}
+
+.resumen {
+  text-align: right;
+  font-size: 1.1rem;
+  color: #333;
+  margin-top: 5px;
+}
+
+.botonSubmit {
+  padding: 12px;
+  background-color: bisque;
+  color: brown;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.botonSubmit:hover {
+  background-color: #f5d6b4;
+}
+
+.ordenExito {
+  text-align: center;
+}
+
+.ordenExito h2 {
+  color: #2e7d32;
+  margin-bottom: 15px;
+}
+
+.codigoOrden {
+  font-weight: bold;
+  background-color: bisque;
+  color: brown;
+  padding: 8px 14px;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 15px 0;
+  font-family: monospace;
+  font-size: 1.1rem;
+}
+
+.botonAccion {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 18px;
+  background-color: brown;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: opacity 0.2s ease;
+}
+
+.botonAccion:hover {
+  opacity: 0.9;
+}

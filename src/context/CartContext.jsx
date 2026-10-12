@@ -7,17 +7,22 @@ export const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
-  // Agregar al carrito (evitando duplicados y sumando cantidades)
+  // Verificar si existe un producto por ID
+  const isInCart = (id) => cart.some((p) => p.id === id);
+
+  // Agregar al carrito (calculando todo dentro del updater funcional 'prev')
   const addItem = (item, quantity) => {
-    if (isInCart(item.id)) {
-      setCart((prev) =>
-        prev.map((p) =>
+    setCart((prev) => {
+      const exists = prev.some((p) => p.id === item.id);
+
+      if (exists) {
+        return prev.map((p) =>
           p.id === item.id ? { ...p, quantity: p.quantity + quantity } : p
-        )
-      );
-    } else {
-      setCart((prev) => [...prev, { ...item, quantity }]);
-    }
+        );
+      } else {
+        return [...prev, { ...item, quantity }];
+      }
+    });
   };
 
   // Eliminar un solo producto
@@ -28,9 +33,6 @@ export const CartProvider = ({ children }) => {
   // Vaciar todo el carrito
   const clear = () => setCart([]);
 
-  // Verificar si existe
-  const isInCart = (id) => cart.some((p) => p.id === id);
-
   // Calcular la cantidad total de "bolsitas" para el ícono
   const totalQuantity = cart.reduce((acc, p) => acc + p.quantity, 0);
 
@@ -38,7 +40,17 @@ export const CartProvider = ({ children }) => {
   const totalPrice = cart.reduce((acc, p) => acc + (p.price * p.quantity), 0);
 
   return (
-    <CartContext.Provider value={{ cart, addItem, removeItem, clear, totalQuantity, totalPrice }}>
+    <CartContext.Provider 
+      value={{ 
+        cart, 
+        addItem, 
+        removeItem, 
+        clear, 
+        isInCart, 
+        totalQuantity, 
+        totalPrice 
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

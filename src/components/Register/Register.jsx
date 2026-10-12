@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
+import styles from "./Register.module.css";
 
 function Register() {
   const { register } = useContext(AuthContext);
@@ -20,14 +21,16 @@ function Register() {
   };
 
   return (
-    <div style={{ maxWidth: "400px", margin: "40px auto", textAlign: "center" }}>
-      <h2>Registro de Usuario</h2>
-      <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
+    <div className={styles.registerContainer}>
+      <h2 className={styles.titulo}>Registro de Usuario</h2>
+      
+      <form onSubmit={handleSubmit} className={styles.formulario}>
         <input 
           type="email" 
           placeholder="Email" 
           value={email} 
           onChange={(e) => setEmail(e.target.value)} 
+          className={styles.inputField}
           required 
         />
         <input 
@@ -35,15 +38,18 @@ function Register() {
           placeholder="Contraseña (mínimo 6 caracteres)" 
           value={password} 
           onChange={(e) => setPassword(e.target.value)} 
+          className={styles.inputField}
           required 
         />
-        <button type="submit" style={{ padding: "10px", background: "lightgreen", cursor: "pointer", border: "none" }}>
+        <button type="submit" className={styles.botonSubmit}>
           Registrarme
         </button>
       </form>
-      {error && <p style={{ color: "red", marginTop: "10px" }}>{error}</p>}
-      <p style={{ marginTop: "20px" }}>
-        ¿Ya tienes cuenta? <Link to="/login">Inicia sesión aquí</Link>
+
+      {error && <p className={styles.mensajeError}>{error}</p>}
+
+      <p className={styles.textoLogin}>
+        ¿Ya tienes cuenta? <Link to="/login" className={styles.linkLogin}>Inicia sesión aquí</Link>
       </p>
     </div>
   );

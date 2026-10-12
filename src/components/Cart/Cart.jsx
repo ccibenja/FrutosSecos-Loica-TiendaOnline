@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import { Link } from "react-router-dom";
+import styles from "./Cart.module.css";
 
 function Cart() {
   const { cart, clear, removeItem, totalPrice } = useContext(CartContext);
@@ -8,10 +9,10 @@ function Cart() {
   // Renderizado condicional: si no hay productos
   if (cart.length === 0) {
     return (
-      <div style={{ textAlign: "center", marginTop: "50px" }}>
+      <div className={styles.cartVacio}>
         <h2>Tu carrito está vacío 😔</h2>
         <p>¡Agrega algunos frutos secos deliciosos!</p>
-        <Link to="/" style={{ padding: "10px", background: "bisque", textDecoration: "none", color: "black", borderRadius: "5px" }}>
+        <Link to="/" className={styles.btnTienda}>
           Volver a la tienda
         </Link>
       </div>
@@ -20,32 +21,34 @@ function Cart() {
 
   // Si hay productos
   return (
-    <div style={{ maxWidth: "800px", margin: "20px auto", padding: "20px" }}>
-      <h2>Tu Carrito</h2>
+    <div className={styles.cartContainer}>
+      <h2 className={styles.titulo}>Tu Carrito</h2>
       
-      {cart.map((producto) => (
-        <div key={producto.id} style={{ display: "flex", justifyContent: "space-between", borderBottom: "1px solid #ccc", padding: "10px 0" }}>
-          <div>
-            <h3>{producto.name}</h3>
-            <p>Cantidad: {producto.quantity}</p>
-            <p>Precio unitario: ${producto.price}</p>
-            <p>Subtotal: ${producto.price * producto.quantity}</p>
+      <div className={styles.listaProductos}>
+        {cart.map((producto) => (
+          <div key={producto.id} className={styles.itemCarrito}>
+            <div className={styles.infoItem}>
+              <h3>{producto.name}</h3>
+              <p>Cantidad: {producto.quantity}</p>
+              <p>Precio unitario: ${producto.price}</p>
+              <p>Subtotal: ${producto.price * producto.quantity}</p>
+            </div>
+            <button onClick={() => removeItem(producto.id)} className={styles.btnEliminar}>
+              ❌ Eliminar
+            </button>
           </div>
-          <button onClick={() => removeItem(producto.id)} style={{ alignSelf: "center", cursor: "pointer" }}>
-            ❌ Eliminar
-          </button>
-        </div>
-      ))}
+        ))}
+      </div>
 
-      <h3 style={{ marginTop: "20px", textAlign: "right" }}>Total a pagar: ${totalPrice}</h3>
+      <h3 className={styles.total}>Total a pagar: ${totalPrice}</h3>
 
-      <div style={{ display: "flex", justifyContent: "space-between", marginTop: "30px" }}>
-        <button onClick={clear} style={{ padding: "10px", cursor: "pointer", background: "lightcoral", border: "none" }}>
+      <div className={styles.acciones}>
+        <button onClick={clear} className={styles.btnVaciar}>
           Vaciar carrito
         </button>
-        <button style={{ padding: "10px", cursor: "pointer", background: "lightgreen", border: "none", fontWeight: "bold" }}>
+        <Link to="/checkout" className={styles.btnFinalizar}>
           Finalizar Compra
-        </button>
+        </Link>
       </div>
     </div>
   );

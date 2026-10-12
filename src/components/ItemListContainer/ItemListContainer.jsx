@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import ItemList from '../ItemList/ItemList';
 import { db } from '../../firebase/config';
 import { collection, getDocs, query, where } from 'firebase/firestore';
-import './ItemListContainer.css';
+import styles from './ItemListContainer.module.css';
 
 function ItemListContainer({ greeting }) {
   const [items, setItems] = useState([]);
@@ -30,9 +30,15 @@ function ItemListContainer({ greeting }) {
   }, [idCategoria]);
 
   return (
-    <div className="contenedor-saludo">
-      <h1 className="titulo-saludo">{idCategoria ? `Categoría: ${idCategoria}` : greeting}</h1>
-      {loading ? <p style={{ textAlign: 'center' }}>⏳ Cargando catálogo...</p> : <ItemList products={items} />}
+    <div className={styles['contenedor-saludo']}>
+      <h1 className={styles['titulo-saludo']}>
+        {idCategoria ? `Categoría: ${idCategoria}` : greeting}
+      </h1>
+      {loading ? (
+        <p style={{ textAlign: 'center' }}>⏳ Cargando catálogo...</p>
+      ) : (
+        <ItemList products={items} />
+      )}
     </div>
   );
 }
