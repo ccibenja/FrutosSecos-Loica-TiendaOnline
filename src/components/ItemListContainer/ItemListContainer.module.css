@@ -1,19 +1,18 @@
 .container {
   max-width: 1200px;
-  margin: 30px auto;
-  padding: 0 20px;
+  margin: 0 auto;
+  padding: 30px 20px;
 }
 
-.greeting {
-  text-align: center;
-  color: #333;
-  font-size: 1.8rem;
+.tituloCategoria {
+  color: #4a2c11;
+  font-size: 2rem;
   margin-bottom: 25px;
+  text-transform: capitalize;
 }
 
-.grid {
+.gridProductos {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 20px;
-  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 25px;
 }

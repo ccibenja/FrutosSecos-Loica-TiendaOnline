@@ -1,47 +1,96 @@
 .navbar {
+  background-color: #F2E3D0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background-color: #f8f9fa;
-  border-bottom: 1px solid #e9ecef;
+  padding: 0.8rem 2.5rem;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(59, 34, 19, 0.08);
 }
 
-.logo {
-  text-decoration: none;
-  color: #333;
-}
-
-.navLinks {
+/* Marca y Logotipo */
+.brand {
   display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #3B2213;
+}
+
+.brandText {
+  font-family: serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #3B2213;
+}
+
+/* Tamaño fijo del logotipo */
+.logo {
+  width: 48px;
+  height: 48px;
+  max-width: 48px;
+  max-height: 48px;
+  object-fit: contain;
+  border-radius: 50%;
+  display: block;
+}
+
+/* Menú central horizontal */
+.navLinks {
   list-style: none;
-  gap: 1.5rem;
+  display: flex;
+  gap: 2rem;
   margin: 0;
   padding: 0;
 }
 
 .navLinks a {
   text-decoration: none;
-  color: #555;
+  color: #3B2213;
+  font-size: 0.95rem;
   font-weight: 500;
+  padding-bottom: 4px;
+  transition: border-bottom 0.2s ease, color 0.2s ease;
 }
 
+.navLinks a:hover,
+.navLinks a.active {
+  border-bottom: 2px solid #3B2213;
+}
+
+/* Sección derecha (Usuario / Botón / Carrito) */
 .userSection {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
-.userEmail {
-  font-size: 0.9rem;
-  color: #555;
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
 }
 
+.userEmail {
+  font-size: 0.85rem;
+  color: #3B2213;
+}
+
+/* Botón Ingresar / Salir */
 .authBtn {
-  padding: 0.5rem 1rem;
+  background-color: #3B6E47;
+  color: #ffffff;
+  text-decoration: none;
   border: none;
-  border-radius: 4px;
-  background-color: #2b8a3e;
-  color: white;
+  border-radius: 20px;
+  padding: 0.45rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
   cursor: pointer;
+  display: inline-block;
+  transition: background-color 0.2s ease;
+}
+
+.authBtn:hover {
+  background-color: #2F5938;
 }

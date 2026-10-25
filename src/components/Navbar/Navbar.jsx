@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import CartWidget from "../CartWidget/CartWidget";
 import { AuthContext } from "../../context/AuthContext";
 import styles from "./Navbar.module.css";
@@ -9,19 +9,41 @@ function Navbar() {
 
   return (
     <nav className={styles.navbar}>
-      <Link to="/" className={styles.logo}>
-        <h1>Frutos Secos Loica</h1>
+      <Link to="/" className={styles.brand}>
+        <img src="/loica.jpg" alt="Logo Loica" className={styles.logo} />
+        <span className={styles.brandText}>Frutos Secos Loica</span>
       </Link>
       
       <ul className={styles.navLinks}>
-        <li><Link to="/category/frutos-secos">Frutos Secos</Link></li>
-        <li><Link to="/category/semillas">Semillas</Link></li>
-        <li><Link to="/category/mixes">Mixes</Link></li>
+        <li>
+          <NavLink 
+            to="/category/frutos-secos" 
+            className={({ isActive }) => isActive ? styles.active : ""}
+          >
+            Frutos Secos
+          </NavLink>
+        </li>
+        <li>
+          <NavLink 
+            to="/category/semillas" 
+            className={({ isActive }) => isActive ? styles.active : ""}
+          >
+            Semillas
+          </NavLink>
+        </li>
+        <li>
+          <NavLink 
+            to="/category/mixes" 
+            className={({ isActive }) => isActive ? styles.active : ""}
+          >
+            Mixes
+          </NavLink>
+        </li>
       </ul>
 
       <div className={styles.userSection}>
         {user ? (
-          <div className={styles.userSection}>
+          <div className={styles.userInfo}>
             <span className={styles.userEmail}>{user.email}</span>
             <button onClick={logout} className={styles.authBtn}>Salir</button>
           </div>

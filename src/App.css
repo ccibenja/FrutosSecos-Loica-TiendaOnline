@@ -1,4 +1,15 @@
+:root {
+  --bg-main: #F2E3D0;
+  --text-dark: #3B2213;
+  --accent-green: #556B2F;
+  --btn-detail-bg: #E3C9B0;
+  --btn-detail-hover: #D6BA9F;
+  --btn-primary: #3B6E47;
+}
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-dark);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
