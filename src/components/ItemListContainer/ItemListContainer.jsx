@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemList from '../ItemList/ItemList';
+import Spinner from '../Spinner/Spinner'; // <-- 1. Importamos el Spinner
 import { db } from '../../firebase/config';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import styles from './ItemListContainer.module.css';
@@ -35,7 +36,7 @@ function ItemListContainer({ greeting }) {
         {idCategoria ? `Categoría: ${idCategoria}` : greeting}
       </h1>
       {loading ? (
-        <p style={{ textAlign: 'center' }}>⏳ Cargando catálogo...</p>
+        <Spinner /> /* <-- 2. Reemplazamos el texto por el componente animado */
       ) : (
         <ItemList products={items} />
       )}

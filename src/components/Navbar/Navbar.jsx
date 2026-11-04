@@ -45,6 +45,12 @@ function Navbar() {
         {user ? (
           <div className={styles.userInfo}>
             <span className={styles.userEmail}>{user.email}</span>
+            
+            {/* <-- 1. Agregamos el enlace al Historial de Órdenes --> */}
+            <Link to="/mis-ordenes" className={styles.authBtn}>
+              Mis Órdenes
+            </Link>
+
             <button onClick={logout} className={styles.authBtn}>Salir</button>
           </div>
         ) : (

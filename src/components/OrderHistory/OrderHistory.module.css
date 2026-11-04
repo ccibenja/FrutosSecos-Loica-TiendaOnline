@@ -1,0 +1,64 @@
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  color: #3B2213;
+}
+
+.title {
+  text-align: center;
+  font-family: serif;
+  margin-bottom: 2rem;
+  color: #3B2213;
+}
+
+.empty {
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.card {
+  background-color: #F2E3D0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(59, 34, 19, 0.1);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(59, 34, 19, 0.2);
+  padding-bottom: 0.8rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.orderId {
+  font-size: 0.9rem;
+  color: #3B6E47;
+}
+
+.itemList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+  font-size: 0.95rem;
+}
+
+.itemList li {
+  margin-bottom: 0.4rem;
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  font-size: 1.1rem;
+  color: #3B2213;
+}

@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify"; // <-- 1. Importamos la función toast
 import { CartContext } from "../../context/CartContext";
 import ItemCount from "../ItemCount/ItemCount";
 import styles from "./ItemDetail.module.css";
@@ -13,6 +14,19 @@ function ItemDetail({ producto }) {
   const handleAgregar = (cantidad) => {
     setCantidadAgregada(cantidad);
     addItem(producto, cantidad); // Enviamos el producto completo y el número al contexto
+
+    // <-- 2. Disparamos la notificación visual
+    toast.success(`¡Agregaste ${cantidad} ${producto.name} al carrito!`, {
+      style: {
+        background: '#F2E3D0', // Color arena
+        color: '#3B2213',      // Texto marrón oscuro
+        fontWeight: '600',
+        borderRadius: '8px'
+      },
+      progressStyle: {
+        background: '#3B6E47'  // Barra de tiempo en color verde
+      }
+    });
   };
 
   return (
