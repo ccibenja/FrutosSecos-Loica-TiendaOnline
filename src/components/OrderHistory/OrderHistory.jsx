@@ -20,18 +20,18 @@ function OrderHistory() {
     const fetchOrders = async () => {
       try {
         const ordersRef = collection(db, 'orders');
-        // Filtramos las órdenes donde el email del comprador coincida con el usuario actual
-        const q = query(ordersRef, where('buyer.email', '==', user.email));
-        
+        // Cambiamos 'buyer.email' por 'userEmail' que es como lo guardaste en el Checkout
+        const q = query(ordersRef, where('userEmail', '==', user.email));
+
         const snapshot = await getDocs(q);
         const ordersData = snapshot.docs.map(doc => ({
           id: doc.id,
           ...doc.data()
         }));
-        
+
         // Opcional: ordenar de la más reciente a la más antigua
         ordersData.sort((a, b) => b.date?.toDate() - a.date?.toDate());
-        
+
         setOrders(ordersData);
       } catch (error) {
         console.error("Error al obtener las órdenes:", error);
@@ -52,7 +52,7 @@ function OrderHistory() {
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>Mi Historial de Compras</h2>
-      
+
       {orders.length === 0 ? (
         <p className={styles.empty}>Aún no has realizado ninguna compra.</p>
       ) : (
